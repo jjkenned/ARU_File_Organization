@@ -26,14 +26,25 @@ library(lubridate)
 ## Step 1 - Location and listing
 
 # Set folders where all files are kept
-recs.loc = "F:/"
+recs.loc = "S:/ProjectScratch/398-173.07/ARUs - 2022"
  
 # List files in location
 files = list.files(path = recs.loc,all.files = T,full.names = T,recursive = T)
 file.frame = data.frame(files)
 
 # ID by enclosing folder 
-list.dirs(path=recs.loc,recursive = F)
+paths = data.frame(Full = list.dirs(path=recs.loc,full.names = T, recursive = F)) # list paths
+paths$folder = basename(paths$Full) # get names of enclosing folders
+paths$
 
 
+# Now you can set your filters for path names based on what you care about and 'other'
+paths.basic = c("copied_recordings","processing","recordings","Spectrograms")
+
+i = 1
+for (i in 1:nrow(paths)){
+  if(paths$folder[i] %in% paths.basic){}
+  
+  
+}
 
